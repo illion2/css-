@@ -1,0 +1,118 @@
+* {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    text-decoration: none;
+}
+
+.clearfix::after {
+    content: "";
+    display: block;
+    clear: both;
+}
+
+body {
+    background-color: #ccc;
+}
+
+.container {
+    width: 840px;
+    margin: 30px auto;
+}
+
+.container .menu>li {
+    float: left;
+}
+
+.container .menu>li:first-child {
+    border-radius: 3px 0 0 0;
+}
+
+.container .menu li {
+    width: 140px;
+    /* 线性渐变 */
+    background: linear-gradient(#3d3838, #999999);
+    position: relative;
+}
+
+.container .menu a {
+    display: block;
+    text-align: center;
+    color: #000;
+    font-size: 15px;
+    line-height: 30px;
+    border-left: 1px solid rgba(0, 0, 0, 0);
+}
+
+.menu li:hover {
+    background: linear-gradient(#111, #424242);
+    display: block;
+}
+
+.menu li:hover>a {
+    color: #fff;
+    border-left: 1px solid #fff;
+}
+
+
+/* 隐藏二级菜单 */
+
+.submenu {
+    position: absolute;
+    /* display: none; */
+    left: 0;
+    top: 100%;
+    perspective: 1000px;
+    max-height: 0;
+    z-index: 1;
+}
+
+.submenu li {
+    visibility: hidden;
+    transform: rotateY(90deg);
+    /* 贝塞尔曲线 */
+    transition: all 0.8s cubic-bezier(0.165, 0.84, 0.44, 1);
+}
+
+
+/* 显现二级菜单 */
+
+.menu>li:hover .submenu {
+    max-height: 500px;
+    z-index: 10;
+}
+
+.menu>li:hover .submenu li {
+    visibility: visible;
+    transform: rotateY(0deg);
+}
+
+
+/* 二级菜单延迟效果 */
+
+.submenu li:nth-child(1) {
+    transition-delay: 0ms;
+}
+
+.submenu li:nth-child(2) {
+    transition-delay: 100ms;
+}
+
+.submenu li:nth-child(3) {
+    transition-delay: 200ms;
+}
+
+.submenu li:nth-child(4) {
+    transition-delay: 300ms;
+}
+
+.submenu li:nth-child(5) {
+    transition-delay: 400ms;
+}
+
+.submenu li:nth-child(6) {
+    transition-delay: 500ms;
+}
+
+
+/* 景深： 就是我们看到的元素是在屏幕上的投影*/
